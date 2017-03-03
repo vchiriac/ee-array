@@ -12,11 +12,11 @@ public class InternalException extends Exception {
     }
 
     public InternalException(final String message) {
-        super(abbreviateToOneLine(message));
+        super(message);
     }
 
     public InternalException(final String message, final Throwable t) {
-        super(abbreviateToOneLine(message), t);
+        super(message, t);
     }
 
     public InternalException(final Throwable t) {
@@ -33,33 +33,6 @@ public class InternalException extends Exception {
 
     public static InternalException build(final String message, final Throwable t) {
         return new InternalException(message, t);
-    }
-
-    public static InternalException build(final Throwable t) {
-        if (t instanceof InternalException) {
-            return (InternalException) t;
-        }
-        return new InternalException(t);
-    }
-
-    public static RuntimeException buildAsRuntime(final String message) {
-        return new RuntimeException(build(message));
-    }
-
-    public static RuntimeException buildAsRuntime(final String message, final Throwable t) {
-        return new RuntimeException(build(message, t));
-    }
-
-    public static RuntimeException buildAsRuntime(final Throwable t) {
-        return new RuntimeException(build(t));
-    }
-
-    private static String abbreviateToOneLine(final String str) {
-        String result = "";
-        if (str != null) {
-            result = str.replaceAll("\\r\\n", " ").replaceAll("\\n", " ");
-        }
-        return result;
     }
 
 }

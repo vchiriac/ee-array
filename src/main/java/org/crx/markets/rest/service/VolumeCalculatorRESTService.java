@@ -33,13 +33,14 @@ public class VolumeCalculatorRESTService extends AbstractRESTService {
     }
 
     private Integer calculateVolume(BlockList blockList) throws InternalException {
-        List<Integer> array = new ArrayList<>();
-        for (Block block : blockList.getBlocks()) {
-            array.add(block.getHeight());
-        }
-        Integer[] integers = array.toArray(new Integer[array.size()]);
 
-        return volumeCalculator.calculateVolume(integers);
+        List<Integer> list = new ArrayList<>();
+        for (Block block : blockList.getBlocks()) {
+            list.add(block.getHeight());
+        }
+        Integer[] blocks = list.toArray(new Integer[list.size()]);
+
+        return volumeCalculator.calculateVolume(blocks);
     }
 
 }
