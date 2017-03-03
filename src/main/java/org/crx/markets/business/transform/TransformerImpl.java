@@ -17,7 +17,7 @@ public class TransformerImpl implements Transformer {
         for (Block block : blockList.getBlocks()) {
             list.add(block.getHeight());
         }
-        
+
         return list.toArray(new Integer[list.size()]);
     }
 }
