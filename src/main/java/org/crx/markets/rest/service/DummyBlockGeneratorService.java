@@ -14,6 +14,14 @@ import java.util.Arrays;
 @Path("/volume")
 public class DummyBlockGeneratorService extends AbstractRESTService {
 
+
+    /**
+     * Dummy generator of a json for test purposes
+     *
+     * use rest client (GET) with URL:  http://localhost:8080/ee-array-1/rest/volume/dummy
+     * @return json with elements
+     */
+
     @GET
     @Path("dummy")
     @Produces(MediaType.APPLICATION_JSON)
