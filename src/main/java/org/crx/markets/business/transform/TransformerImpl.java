@@ -10,6 +10,13 @@ import java.util.List;
 @Stateless
 public class TransformerImpl implements Transformer {
 
+
+    /**
+     * Transforms the input parameters into array of Integer for better calculation optimization.
+     *
+     * @param blockList input parameters
+     * @return array of Integer
+     */
     @Override
     public Integer[] transform(BlockList blockList) {
 

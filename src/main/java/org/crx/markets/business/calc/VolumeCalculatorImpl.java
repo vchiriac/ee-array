@@ -2,6 +2,7 @@ package org.crx.markets.business.calc;
 
 
 import org.crx.markets.rest.exception.InternalException;
+
 import javax.ejb.Stateless;
 
 @Stateless
@@ -16,11 +17,12 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
 
     @Override
     public int calculateVolume(Integer[] blocks) throws InternalException {
+
         if (blocks == null) {
             throw InternalException.build("Array cannot be null.");
         }
 
-        int size = blocks.length;
+/*        int size = blocks.length;
         int[] left = new int[size];
         int[] right = new int[size];
 
@@ -39,6 +41,22 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
             volume += min(left[i], right[i]) - blocks[i];
         }
 
+        return volume;*/
+        int volume = 0;
+        int size = blocks.length;
+        int left=0,right=size-1;
+        int store=0;
+        while(left<right) {
+            if (blocks[left] < blocks[right]) {
+                store = max(blocks[left], store);
+                volume += store - blocks[left];
+                left++;
+            } else {
+                store = max(blocks[right], store);
+                volume += store - blocks[right];
+                right--;
+            }
+        }
         return volume;
     }
 

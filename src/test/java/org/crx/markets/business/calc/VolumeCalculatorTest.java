@@ -1,36 +1,20 @@
-package org.crx.markets.calc;
+package org.crx.markets.business.calc;
 
-import org.crx.markets.business.calc.VolumeCalculator;
+import org.crx.markets.business.AbstractTest;
 import org.crx.markets.rest.exception.InternalException;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import javax.naming.NamingException;
 
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
-public class VolumeCalculatorTest {
+public class VolumeCalculatorTest extends AbstractTest {
 
-    private static EJBContainer ejbContainer;
-    private static Context ctx;
+
     private VolumeCalculator volumeCalculator;
-
-    @BeforeClass
-    public static void setUp() {
-        ejbContainer = EJBContainer.createEJBContainer();
-        ctx = ejbContainer.getContext();
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        ejbContainer.close();
-    }
 
     @Before
     public void bootContainer() throws Exception {
@@ -52,7 +36,7 @@ public class VolumeCalculatorTest {
     }
 
     @Test
-         public void testVolumeZero() throws Exception {
+    public void testVolumeZero() throws Exception {
         assertNotNull(volumeCalculator);
         Integer[] array = new Integer[]{3, 2, 1};
         int result = volumeCalculator.calculateVolume(array);

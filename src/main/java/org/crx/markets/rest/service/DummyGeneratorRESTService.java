@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @Path("/volume")
-public class DummyBlockGeneratorService extends AbstractRESTService {
+public class DummyGeneratorRESTService extends AbstractRESTService {
 
 
     /**

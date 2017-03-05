@@ -41,7 +41,6 @@ public class VolumeCalculatorRESTService extends AbstractRESTService {
         return toJson(ResponseBuilder.build(calculateVolume(blocks)));
     }
 
-
     /**
      * Transforms json to internal array, and calculates the volume of water.
      *
