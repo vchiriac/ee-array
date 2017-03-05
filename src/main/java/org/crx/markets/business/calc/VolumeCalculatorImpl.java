@@ -23,19 +23,19 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
         }
 
         int size = blocks.length;
-        int left=0;
-        int right=size-1;
-        int store=0;
+        int left = 0;
+        int right = size - 1;
+        int maxValue = 0;
         int volume = 0;
         while(left < right) {
             if (blocks[left] < blocks[right]) {
-                store = max(blocks[left], store);
-                volume += store - blocks[left];
-                left++;
+                maxValue = max(blocks[left], maxValue);
+                volume += maxValue - blocks[left];
+                left ++;
             } else {
-                store = max(blocks[right], store);
-                volume += store - blocks[right];
-                right--;
+                maxValue = max(blocks[right], maxValue);
+                volume += maxValue - blocks[right];
+                right --;
             }
         }
         return volume;

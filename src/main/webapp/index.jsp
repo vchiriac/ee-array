@@ -4,7 +4,7 @@
     <title>Rainy Hills</title>
 </head>
 <body>
-Rainy Hills
+<b>Rainy Hills</b>
 @author Valentin Chiriac
 The application is built on Java EE with JAX-RS REST Services for easy testing.
 It can be deployed in jboss AS Server (I used version 7.1.1)
