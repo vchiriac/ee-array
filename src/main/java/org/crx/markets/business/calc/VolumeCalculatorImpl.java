@@ -22,31 +22,12 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
             throw InternalException.build("Array cannot be null.");
         }
 
-/*        int size = blocks.length;
-        int[] left = new int[size];
-        int[] right = new int[size];
-
-        left[0] = blocks[0];
-        for (int i = 1; i < size; i++) {
-            left[i] = max(left[i - 1], blocks[i]);
-        }
-
-        right[size - 1] = blocks[size - 1];
-        for (int i = size - 2; i >= 0; i--) {
-            right[i] = max(right[i + 1], blocks[i]);
-        }
-
-        int volume = 0;
-        for (int i = 0; i < size; i++) {
-            volume += min(left[i], right[i]) - blocks[i];
-        }
-
-        return volume;*/
-        int volume = 0;
         int size = blocks.length;
-        int left=0,right=size-1;
+        int left=0;
+        int right=size-1;
         int store=0;
-        while(left<right) {
+        int volume = 0;
+        while(left < right) {
             if (blocks[left] < blocks[right]) {
                 store = max(blocks[left], store);
                 volume += store - blocks[left];

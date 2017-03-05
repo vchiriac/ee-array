@@ -28,8 +28,10 @@ which can be used (also modified and used) as input data:
 b. POST: http://localhost:8080/ee-array-1/rest/volume/calculate - calculates the required volume
 based on the input json (set the content-type to application/json)
 
+The solution used has complexity O(n) and is done in 1 pass
+a. left = 0 and right = n-1;
+b. find the hill of max height from left and right.
+c. the minimum of the two is subtracted from the array element
 
-The solution used has complexity O(n) and the idea is to pre-calculate the highest peak on the left and on the right of every hill.
-Then the pre-computed values are used to find the amount of water in every element.
 </body>
 </html>
