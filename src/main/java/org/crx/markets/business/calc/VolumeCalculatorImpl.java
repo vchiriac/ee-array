@@ -52,17 +52,4 @@ public class VolumeCalculatorImpl implements VolumeCalculator {
     private int max(int height1, int height2) {
         return (height1 >= height2 ? height1 : height2);
     }
-
-    /**
-     * Calculate minimum between two heights.
-     *
-     * @param height1
-     * @param height2
-     * @return int = min(height1, height2)
-     */
-
-    private int min(int height1, int height2) {
-        return (height1 <= height2 ? height1 : height2);
-    }
-
 }
